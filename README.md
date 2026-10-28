@@ -441,7 +441,7 @@ Never include secrets, `.env` files or real wallet data in a commit or pull requ
 
 ## License
 
-No license file was found. The license is **not specified**, so do not assume the code is open source or free to reuse. Contact the maintainers for permission before reusing it. If a license is added later, link it here.
+NEXORA is a personal project. No license has been specified yet. All rights are reserved by default, and permission is required for reuse, redistribution, or modification beyond what applicable law permits.
 
 ---
 
