@@ -1,0 +1,319 @@
+/* --------------------------------------------------------------------------
+   Legacy page tuning: keeps untouched pages in the same typographic scale.
+   -------------------------------------------------------------------------- */
+#root main { min-width: 0; max-width: 1560px; margin-inline: auto; }
+#root main > div { min-width: 0; }
+#root main h1 { letter-spacing: -0.04em; }
+#root main h2 { letter-spacing: -0.03em; }
+#root main .text-5xl { font-size: clamp(1.9rem, 2.8vw, 2.5rem); line-height: 1.05; }
+#root main .text-6xl { font-size: clamp(2.2rem, 3.6vw, 3.2rem); line-height: 1; }
+#root main .text-4xl { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
+#root main .text-3xl { font-size: clamp(1.3rem, 1.9vw, 1.6rem); }
+#root main .space-y-16 > :not([hidden]) ~ :not([hidden]) { margin-top: 3rem; }
+#root main .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.75rem; }
+#root main .rounded-xl.border, #root main .rounded-2xl.border { border-color: var(--nx-border); }
+#root main table thead { background: rgba(16, 21, 36, 0.7); }
+#root main table th { white-space: nowrap; }
+#root main table tbody tr { transition: background-color var(--nx-duration-fast) ease; }
+#root main table tbody tr:focus-within { background: rgba(169, 154, 255, 0.045); }
+#root main input:not([type=checkbox]), #root main textarea, #root main select { min-height: 36px; }
+
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #070912; }
+::-webkit-scrollbar-thumb { background: #2c3450; border: 2px solid #070912; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #55587f; }
+
+/* --------------------------------------------------------------------------
+   Hero (structure lives in discover-hero.tsx)
+   -------------------------------------------------------------------------- */
+/* The Discover hero is part of the page canvas, not a nested card. */
+.nx-hero {
+  min-height: 380px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  isolation: isolate;
+}
+/* Atmospheric light is concentrated behind the globe and fades into the app canvas. */
+.nx-hero::before {
+  content: "";
+  position: absolute;
+  inset: -1.5rem -2rem;
+  z-index: 0;
+  pointer-events: none;
+  /* Keep the copy side neutral; concentrate the ambient glow behind the 3D artwork. */
+  background: radial-gradient(ellipse 34rem 26rem at 78% 46%, rgba(104, 83, 231, 0.105), transparent 72%);
+  opacity: 0.9;
+}
+.nx-hero > * { min-width: 0; }
+.nx-hero-scene { isolation: isolate; background: transparent; }
+.nx-canvas-wrap { z-index: 2; }
+.nx-canvas-wrap, .nx-canvas-wrap canvas { background: transparent !important; outline: none; }
+.nx-canvas-wrap canvas { display: block; width: 100% !important; height: 100% !important; }
+
+/* --------------------------------------------------------------------------
+   Component hooks
+   -------------------------------------------------------------------------- */
+.nx-brand-mark { background: linear-gradient(145deg, rgba(169, 154, 255, 0.14), rgba(111, 219, 233, 0.05)); box-shadow: inset 0 0 18px rgba(169, 154, 255, 0.07); }
+.nx-search-trigger { background: var(--nx-control-bg); border-color: var(--nx-border); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02); transition: border-color var(--nx-duration-fast) ease, background-color var(--nx-duration-fast) ease, box-shadow var(--nx-duration-fast) ease; }
+.nx-search-trigger:hover { border-color: rgba(169, 154, 255, 0.32); background: rgba(21, 28, 48, 0.9); }
+.nx-search-trigger:focus-visible { border-color: rgba(169, 154, 255, 0.55); box-shadow: 0 0 0 3px rgba(169, 154, 255, 0.12); outline: none; }
+
+.nx-collection-card {
+  background: linear-gradient(155deg, rgba(18, 23, 39, 0.98), rgba(11, 15, 26, 0.99));
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--nx-duration-base) var(--nx-ease), box-shadow var(--nx-duration-base) var(--nx-ease);
+}
+.nx-collection-card:hover { border-color: var(--nx-border-strong); box-shadow: var(--shadow-lift); }
+.nx-section-header a { font-size: 12px; }
+
+.nx-nav-scroll { scrollbar-width: none; }
+.nx-nav-scroll::-webkit-scrollbar { display: none; }
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (min-width: 1280px) { #root main { padding-left: 2rem; padding-right: 2rem; } }
+@media (max-width: 1023px) {
+  #root main { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .nx-hero { min-height: 0; grid-template-columns: minmax(0, 1fr); }
+  .nx-hero-scene { min-height: 290px; }
+}
+@media (max-width: 640px) {
+  #root main { padding-top: 1.25rem; padding-bottom: 1.5rem; }
+  #root main .space-y-16 > :not([hidden]) ~ :not([hidden]) { margin-top: 2.25rem; }
+  #root main .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+  .nx-hero-scene { min-height: 250px; margin-top: -0.5rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion (OS setting OR the in-app html[data-motion="reduced"] switch)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+html[data-motion="reduced"] *, html[data-motion="reduced"] *::before, html[data-motion="reduced"] *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+html[data-compact="true"] table th, html[data-compact="true"] table td { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+
+
+/* Seamless Curator's Pick background: same canvas color, no visible panel edge. */
+.nx-spotlight {
+  position: relative;
+  min-width: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-canvas);
+  box-shadow: none;
+  isolation: isolate;
+  /* Extend the visual canvas to the edges of the main content area. */
+  width: calc(100% + 7rem);
+  margin-left: -3.5rem;
+}
+.nx-spotlight-wavy,
+.nx-spotlight-wavy > canvas {
+  position: absolute !important;
+  inset: 0;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  background: var(--color-canvas) !important;
+}
+.nx-spotlight-wavy canvas {
+  opacity: 1;
+}
+.nx-spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--color-canvas) 0%, color-mix(in srgb, var(--color-canvas) 8%, transparent) 1.5%, transparent 6%, transparent 94%, color-mix(in srgb, var(--color-canvas) 8%, transparent) 98.5%, var(--color-canvas) 100%),
+    linear-gradient(180deg, var(--color-canvas) 0%, color-mix(in srgb, var(--color-canvas) 3%, transparent) 10%, transparent 24%, transparent 76%, color-mix(in srgb, var(--color-canvas) 8%, transparent) 92%, var(--color-canvas) 100%);
+}
+.nx-spotlight > .relative.z-10 {
+  position: relative;
+  z-index: 2;
+}
+/* Keep Curator's Pick copy readable while the colorful waves continue behind it.
+   A soft radial veil blends into the section instead of creating a visible card. */
+.nx-spotlight-copy {
+  position: relative;
+  isolation: isolate;
+  text-shadow: 0 1px 12px color-mix(in srgb, var(--color-canvas) 35%, transparent);
+}
+.nx-spotlight-copy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1.4rem -2.2rem;
+  pointer-events: none;
+  border-radius: 2rem;
+  background: radial-gradient(
+    ellipse at 52% 48%,
+    color-mix(in srgb, var(--color-canvas) 91%, transparent) 0%,
+    color-mix(in srgb, var(--color-canvas) 78%, transparent) 38%,
+    color-mix(in srgb, var(--color-canvas) 48%, transparent) 61%,
+    transparent 82%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.nx-spotlight-copy > p:nth-of-type(3) {
+  color: color-mix(in srgb, var(--color-ink) 94%, var(--color-mute)) !important;
+}
+.nx-spotlight-copy .nx-eyebrow {
+  color: color-mix(in srgb, var(--color-ink) 66%, var(--color-mute));
+}
+@media (max-width: 1279px) {
+  .nx-spotlight {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+  }
+}
+@media (max-width: 1023px) {
+  .nx-spotlight::after {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--color-canvas) 8%, transparent), transparent 6%, transparent 94%, color-mix(in srgb, var(--color-canvas) 8%, transparent)),
+      linear-gradient(180deg, var(--color-canvas) 0%, transparent 12%, transparent 82%, var(--color-canvas) 100%);
+  }
+}
+@media (max-width: 640px) {
+  .nx-spotlight {
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-spotlight-wavy canvas { opacity: 0.75; }
+}
+
+
+/* Curator artwork fan: slightly inset from the sidebar, with room for hover zoom. */
+.nx-spotlight-artwork {
+  margin-left: 1.25rem;
+  transform: translateX(0.35rem);
+  overflow: visible;
+}
+.nx-spotlight-artwork > div {
+  will-change: transform;
+}
+@media (max-width: 1279px) {
+  .nx-spotlight-artwork {
+    margin-left: 0.5rem;
+    transform: translateX(0.15rem) scale(0.94);
+  }
+}
+@media (max-width: 1023px) {
+  .nx-spotlight-artwork {
+    margin-left: 0;
+    transform: none;
+  }
+}
+
+
+/* Compact continuous collection rail between the Discover hero and Curator's Pick. */
+.nx-moving-rail {
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 0.15rem;
+}
+.nx-moving-rail__viewport {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+}
+.nx-moving-rail__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: nx-collection-marquee 54s linear infinite;
+}
+.nx-moving-rail__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+}
+.nx-moving-rail__viewport:hover .nx-moving-rail__track,
+.nx-moving-rail__viewport:focus-within .nx-moving-rail__track {
+  animation-play-state: paused;
+}
+.nx-moving-rail__card {
+  position: relative;
+  display: flex;
+  width: clamp(230px, 22vw, 278px);
+  min-height: 102px;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, rgba(18, 23, 39, 0.96), rgba(9, 13, 24, 0.94));
+  padding: 0.55rem 0.7rem 0.55rem 0.55rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+.nx-moving-rail__card:hover,
+.nx-moving-rail__card:focus-visible {
+  z-index: 1;
+  border-color: rgba(169,154,255,0.48);
+  background: linear-gradient(135deg, rgba(23, 27, 47, 0.99), rgba(10, 15, 29, 0.98));
+  transform: translateY(-2px);
+  outline: none;
+}
+.nx-moving-rail__artwork {
+  display: block;
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.62rem;
+  background: #101526;
+}
+.nx-moving-rail__artwork img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 360ms cubic-bezier(.2,.7,.2,1), filter 360ms ease;
+}
+.nx-moving-rail__card:hover .nx-moving-rail__artwork img,
+.nx-moving-rail__card:focus-visible .nx-moving-rail__artwork img {
+  transform: scale(1.055);
+  filter: saturate(1.06);
+}
+.nx-moving-rail__copy {
+  display: block;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.nx-moving-rail__arrow {
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  opacity: 0.45;
+  transition: opacity 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.nx-moving-rail__card:hover .nx-moving-rail__arrow,
+.nx-moving-rail__card:focus-visible .nx-moving-rail__arrow {
+  opacity: 1;
+  color: var(--color-copper);
+  transform: translate(1px, -1px);
+}
+@keyframes nx-collection-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (max-width: 640px) {
+  .nx-moving-rail__card { width: 230px; min-height: 90px; }
+  .nx-moving-rail__artwork { width: 70px; height: 70px; flex-basis: 70px; }
+  .nx-moving-rail__track { animation-duration: 62s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-moving-rail__track { animation: none; }
+  .nx-moving-rail__viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .nx-moving-rail__group[aria-hidden="true"] { display: none; }
+  .nx-moving-rail__track { width: max-content; }
+}

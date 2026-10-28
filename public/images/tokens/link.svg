@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="LINK token mark">
+  <defs>
+    <linearGradient id="disc" x1="7" y1="5" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#A9C7FF" stop-opacity=".07"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="14" y1="12" x2="51" y2="53" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A9C7FF"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientTransform="matrix(35 35 -35 35 17 11)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="29.5" fill="#0C1220" stroke="#3B82F6" stroke-opacity=".62"/>
+  <circle cx="32" cy="32" r="26" fill="url(#disc)"/>
+  <circle cx="32" cy="32" r="26" fill="url(#shine)"/>
+  <circle cx="32" cy="32" r="23.5" stroke="#fff" stroke-opacity=".08"/>
+  <path d="m32 10 17 10v20L32 50 15 40V20l17-10Z" fill="none" stroke="url(#mark)" stroke-width="4"/><path d="m25 25 7-4 7 4v14l-7 4-7-4V25Z" fill="url(#mark)" opacity=".8"/><path d="m25 25 7 4 7-4M32 29v14" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.8"/>
+</svg>

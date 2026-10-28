@@ -1,0 +1,209 @@
+/* Compact token ticker below the collection marquee; animation travels left-to-right. */
+.nx-token-rail {
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 0.25rem;
+}
+.nx-token-rail__viewport {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  /* Reserve vertical room for the card's hover lift so the viewport won't crop it. */
+  padding-block: 4px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+}
+.nx-token-rail__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: nx-token-marquee 48s linear infinite;
+}
+.nx-token-rail__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+}
+.nx-token-rail__viewport:hover .nx-token-rail__track,
+.nx-token-rail__viewport:focus-within .nx-token-rail__track {
+  animation-play-state: paused;
+}
+.nx-token-rail__card {
+  position: relative;
+  display: flex;
+  width: clamp(184px, 18vw, 208px);
+  min-height: 64px;
+  flex: 0 0 clamp(184px, 18vw, 208px);
+  align-items: center;
+  gap: 0.45rem;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, rgba(18, 23, 39, 0.96), rgba(9, 13, 24, 0.94));
+  padding: 0.45rem 0.5rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+  transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+.nx-token-rail__card:hover,
+.nx-token-rail__card:focus-visible {
+  z-index: 1;
+  border-color: rgba(169,154,255,0.48);
+  background: linear-gradient(135deg, rgba(23, 27, 47, 0.99), rgba(10, 15, 29, 0.98));
+  transform: translateY(-1px);
+  outline: none;
+}
+.nx-token-rail__glyph {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 999px;
+}
+.nx-token-rail__copy { display: block; min-width: 0; flex: 1 1 auto; }
+.nx-token-rail__sparkline { width: 32px !important; height: 24px !important; flex: 0 0 32px; }
+.nx-token-rail__arrow { align-self: flex-start; margin-top: 0.1rem; opacity: 0.38; transition: opacity 180ms ease, color 180ms ease, transform 180ms ease; }
+.nx-token-rail__card:hover .nx-token-rail__arrow,
+.nx-token-rail__card:focus-visible .nx-token-rail__arrow { opacity: 1; color: var(--color-copper); transform: translate(1px, -1px); }
+@keyframes nx-token-marquee {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+:root[data-theme="light"] .nx-token-rail__card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(247,248,253,0.98));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 4px 16px rgba(29,38,72,0.045);
+}
+:root[data-theme="light"] .nx-token-rail__card:hover,
+:root[data-theme="light"] .nx-token-rail__card:focus-visible {
+  background: linear-gradient(135deg, #ffffff, #f5f3ff);
+  border-color: rgba(112,84,217,0.42);
+}
+@media (max-width: 640px) {
+  .nx-token-rail__card { width: 190px; min-height: 62px; flex-basis: 190px; gap: 0.4rem; padding: 0.4rem 0.45rem; }
+  .nx-token-rail__glyph { width: 28px; height: 28px; flex-basis: 28px; }
+  .nx-token-rail__sparkline { width: 28px !important; flex-basis: 28px; }
+  .nx-token-rail__arrow { width: 11px; height: 11px; }
+  .nx-token-rail__track { animation-duration: 56s; }
+}
+/* Touch devices: swipe the ticker instead of chasing an auto-scroll. */
+@media (pointer: coarse) {
+  .nx-token-rail__viewport { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .nx-token-rail__viewport::-webkit-scrollbar { display: none; }
+  .nx-token-rail__track { animation: none; }
+  .nx-token-rail__group[aria-hidden="true"] { display: none; }
+  .nx-token-rail__viewport { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+}
+:root[data-motion='reduced'] .nx-token-rail__track { animation: none; }
+:root[data-motion='reduced'] .nx-token-rail__viewport { overflow-x: auto; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+:root[data-motion='reduced'] .nx-token-rail__group[aria-hidden="true"] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nx-token-rail__track { animation: none; }
+  .nx-token-rail__viewport { overflow-x: auto; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+  .nx-token-rail__group[aria-hidden="true"] { display: none; }
+  .nx-token-rail__track { width: max-content; }
+}
+/* Artwork-first NFT ticker, placed before Curator's Pick and moving right-to-left. */
+.nx-nft-rail {
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 0.15rem;
+}
+.nx-nft-rail__viewport {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+}
+.nx-nft-rail__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: nx-nft-marquee 54s linear infinite;
+}
+.nx-nft-rail__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+}
+.nx-nft-rail__viewport:hover .nx-nft-rail__track,
+.nx-nft-rail__viewport:focus-within .nx-nft-rail__track {
+  animation-play-state: paused;
+}
+.nx-nft-rail__card {
+  position: relative;
+  display: flex;
+  width: clamp(280px, 27vw, 348px);
+  min-height: 88px;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 0.95rem;
+  background: linear-gradient(135deg, rgba(18, 23, 39, 0.97), rgba(9, 13, 24, 0.96));
+  padding: 0.55rem 0.7rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+  transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+.nx-nft-rail__card:hover,
+.nx-nft-rail__card:focus-visible {
+  z-index: 1;
+  border-color: rgba(169,154,255,0.5);
+  background: linear-gradient(135deg, rgba(23, 27, 47, 0.99), rgba(10, 15, 29, 0.98));
+  transform: translateY(-2px);
+  outline: none;
+}
+.nx-nft-rail__image {
+  display: block;
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 0.7rem;
+  background: var(--color-raised);
+}
+.nx-nft-rail__image img { transition: transform 500ms ease; }
+.nx-nft-rail__card:hover .nx-nft-rail__image img { transform: scale(1.06); }
+.nx-nft-rail__copy { display: block; min-width: 0; flex: 1 1 auto; }
+.nx-nft-rail__network {
+  flex: 0 0 auto;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-raised);
+  padding: 0.1rem 0.35rem;
+  color: var(--color-mute);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.2;
+}
+.nx-nft-rail__arrow { align-self: flex-start; margin-top: 0.1rem; opacity: 0.38; transition: opacity 180ms ease, color 180ms ease, transform 180ms ease; }
+.nx-nft-rail__card:hover .nx-nft-rail__arrow,
+.nx-nft-rail__card:focus-visible .nx-nft-rail__arrow { opacity: 1; color: var(--color-copper); transform: translate(1px, -1px); }
+@keyframes nx-nft-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+:root[data-theme="light"] .nx-nft-rail__card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.99), rgba(241,244,252,0.99));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 4px 16px rgba(29,38,72,0.055);
+}
+:root[data-theme="light"] .nx-nft-rail__card:hover,
+:root[data-theme="light"] .nx-nft-rail__card:focus-visible {
+  background: linear-gradient(135deg, #ffffff, #f2efff);
+  border-color: rgba(112,84,217,0.42);
+}
+@media (max-width: 640px) {
+  .nx-nft-rail__card { width: 280px; min-height: 82px; }
+  .nx-nft-rail__image { width: 60px; height: 60px; flex-basis: 60px; }
+  .nx-nft-rail__track { animation-duration: 62s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-nft-rail__track { animation: none; }
+  .nx-nft-rail__viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .nx-nft-rail__group[aria-hidden="true"] { display: none; }
+  .nx-nft-rail__track { width: max-content; }
+}

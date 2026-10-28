@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
+    "types": ["node", "vite/client"]
+  },
+  "include": [
+    "src/lib/blockchain",
+    "src/lib/wallet/*.test.ts",
+    "src/lib/nft-data",
+    "src/lib/market-data",
+    "src/lib/discover",
+    "src/lib/wallet-nfts",
+    "src/lib/wallet-activity",
+    "src/lib/tron",
+    "src/lib/ton"
+  ],
+  "exclude": []
+}

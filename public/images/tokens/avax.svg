@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="AVAX token mark">
+  <defs>
+    <linearGradient id="disc" x1="7" y1="5" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E84142" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#FF9A9B" stop-opacity=".07"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="14" y1="12" x2="51" y2="53" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9A9B"/>
+      <stop offset="1" stop-color="#E84142"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientTransform="matrix(35 35 -35 35 17 11)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="29.5" fill="#0C1220" stroke="#E84142" stroke-opacity=".62"/>
+  <circle cx="32" cy="32" r="26" fill="url(#disc)"/>
+  <circle cx="32" cy="32" r="26" fill="url(#shine)"/>
+  <circle cx="32" cy="32" r="23.5" stroke="#fff" stroke-opacity=".08"/>
+  <path d="M31.8 12 51 47H39.2L31.8 33.7 24.4 47H12.5L31.8 12Z" fill="url(#mark)"/><path d="m31.8 27.2 5.5 10h-11l5.5-10Z" fill="#101522" opacity=".82"/>
+</svg>

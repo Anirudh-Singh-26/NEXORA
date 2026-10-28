@@ -1,0 +1,60 @@
+/* TON panel on /wallet ("ton-"). Reuses the wlt- tokens, buttons and chips; only adds what they lack. */
+.ton-panel { padding-top: 4px; }
+.ton-panel .wlt-chip.is-idle i { background: var(--color-mute); }
+.ton-body { display: flex; flex-direction: column; gap: 18px; max-width: 720px; }
+.ton-row { display: flex; flex-direction: column; gap: 8px; }
+.ton-label { color: var(--color-mute); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.ton-inline { display: inline-block; margin-right: 8px; vertical-align: -2px; }
+.ton-foot { margin-top: 2px; }
+.ton-panel .wlt-address { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.ton-panel .wlt-address code { font-family: var(--font-mono); font-size: 13px; overflow-wrap: anywhere; }
+
+.ton-figure { display: flex; flex-direction: column; gap: 4px; transition: opacity 160ms ease; }
+.ton-figure.is-stale { opacity: 0.6; }
+.ton-figure__value { margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ton-figure__value small { margin-left: 4px; color: var(--color-mute); font-size: 0.4em; font-weight: 600; letter-spacing: 0.08em; }
+.ton-figure__sub { margin: 0; color: var(--color-mute); font-size: 12px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ton-figure__note { margin: 2px 0 0; color: var(--color-mute); font-size: 11.5px; line-height: 1.6; }
+
+.ton-error { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1px solid color-mix(in srgb, #e5707e 50%, transparent); border-radius: 12px; background: color-mix(in srgb, #e5707e 8%, transparent); font-size: 12.5px; line-height: 1.6; }
+.ton-error.is-warn { border-color: color-mix(in srgb, #e9c06a 55%, transparent); background: color-mix(in srgb, #e9c06a 8%, transparent); }
+.ton-error > svg { flex: 0 0 auto; margin-top: 3px; }
+.ton-error strong { display: block; font-weight: 600; }
+.ton-error p { margin: 3px 0 10px; color: var(--color-mute); }
+.ton-error code { font-family: var(--font-mono); font-size: 11.5px; overflow-wrap: anywhere; }
+.ton-error em { font-style: normal; color: var(--color-ink); font-weight: 600; }
+.ton-steps { margin: 6px 0 2px; padding-left: 20px; color: var(--color-mute); }
+.ton-steps li { margin: 4px 0; }
+@media (prefers-reduced-motion: reduce) { .ton-figure { transition: none; } }
+
+
+/* Native testnet transfer form (ton-). */
+.ton-transfer { gap: 12px; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--color-mute) 25%, transparent); }
+.ton-transfer__note { margin: 0; color: var(--color-mute); font-size: 12.5px; line-height: 1.6; }
+.ton-form { display: flex; flex-direction: column; gap: 14px; }
+.ton-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ton-field label { font-size: 12.5px; font-weight: 600; }
+.ton-input { box-sizing: border-box; width: 100%; max-width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--color-mute) 40%, transparent); border-radius: 10px; background: transparent; color: inherit; font: inherit; font-size: 14px; }
+.ton-input--mono { font-family: var(--font-mono); font-size: 13px; }
+.ton-input:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+.ton-input[aria-invalid="true"] { border-color: #e5707e; }
+.ton-input:disabled { opacity: 0.6; cursor: not-allowed; }
+.ton-field__hint { margin: 0; color: var(--color-mute); font-size: 11.5px; line-height: 1.6; overflow-wrap: anywhere; }
+.ton-field__error { margin: 0; color: #e5707e; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.ton-notice { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1px solid color-mix(in srgb, var(--color-mute) 40%, transparent); border-radius: 12px; font-size: 12.5px; line-height: 1.6; }
+.ton-notice.is-success { border-color: color-mix(in srgb, #5fc38a 55%, transparent); background: color-mix(in srgb, #5fc38a 8%, transparent); }
+.ton-notice.is-error { border-color: color-mix(in srgb, #e5707e 50%, transparent); background: color-mix(in srgb, #e5707e 8%, transparent); }
+.ton-notice.is-info  { border-color: color-mix(in srgb, #6aabde 50%, transparent); background: color-mix(in srgb, #6aabde 8%, transparent); }
+.ton-notice > svg { flex: 0 0 auto; margin-top: 3px; }
+.ton-notice p { margin: 0 0 6px; overflow-wrap: anywhere; }
+.ton-notice .wlt-link { margin-right: 12px; }
+.ton-review { display: flex; flex-direction: column; gap: 12px; padding: 14px; border: 1px solid color-mix(in srgb, var(--color-mute) 40%, transparent); border-radius: 12px; }
+.ton-review h3 { margin: 0; font-size: 14px; font-weight: 600; }
+.ton-review h3:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+.ton-review__list { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.ton-review__list > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ton-review__list dt { color: var(--color-mute); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.ton-review__list dd { margin: 0; font-size: 13px; overflow-wrap: anywhere; }
+.ton-review__list code { font-family: var(--font-mono); font-size: 12.5px; word-break: break-all; }
+.ton-review__sub { display: block; color: var(--color-mute); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .ton-review .wlt-actions { flex-direction: column; align-items: stretch; } }

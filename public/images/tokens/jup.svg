@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="JUP token mark">
+  <defs>
+    <linearGradient id="disc" x1="7" y1="5" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#D9C8FF" stop-opacity=".07"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="14" y1="12" x2="51" y2="53" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9C8FF"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientTransform="matrix(35 35 -35 35 17 11)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="29.5" fill="#0C1220" stroke="#A78BFA" stroke-opacity=".62"/>
+  <circle cx="32" cy="32" r="26" fill="url(#disc)"/>
+  <circle cx="32" cy="32" r="26" fill="url(#shine)"/>
+  <circle cx="32" cy="32" r="23.5" stroke="#fff" stroke-opacity=".08"/>
+  <path d="M13 25c7-8 21-12 34-7M14 39c8 8 22 11 35 5" fill="none" stroke="url(#mark)" stroke-width="4" stroke-linecap="round"/><path d="M20 29h24M20 35h24" stroke="url(#mark)" stroke-width="3" stroke-linecap="round"/><circle cx="19" cy="22" r="3" fill="url(#mark)"/><circle cx="45" cy="43" r="3" fill="url(#mark)"/>
+</svg>

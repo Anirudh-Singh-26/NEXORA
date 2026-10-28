@@ -1,0 +1,142 @@
+/* Hero CTAs: crisp editorial buttons with a bold offset-shadow hover. */
+.nx-hero-cta {
+  position: relative;
+  isolation: isolate;
+  min-height: 44px;
+  gap: 1.25rem;
+  justify-content: space-between;
+  border-radius: 0.35rem;
+  padding: 0.7rem 1rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: transform 220ms var(--ease-nx), box-shadow 220ms var(--ease-nx), border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+.nx-hero-cta__arrow {
+  flex: 0 0 auto;
+  transition: transform 220ms var(--ease-nx), color 220ms ease;
+}
+.nx-hero-cta--primary {
+  border: 1px solid var(--color-copper);
+  background: var(--color-copper);
+  color: #090a14;
+}
+.nx-hero-cta--secondary {
+  border: 1px solid var(--color-line);
+  background: rgba(10, 13, 24, 0.72);
+  color: var(--color-ink);
+}
+.nx-hero-cta:hover,
+.nx-hero-cta:focus-visible {
+  z-index: 1;
+  transform: translate(-3px, -3px);
+  outline: none;
+  box-shadow: 7px 7px 0 rgba(169, 154, 255, 0.42);
+}
+.nx-hero-cta--primary:hover,
+.nx-hero-cta--primary:focus-visible {
+  background: #b9adff;
+  border-color: #b9adff;
+  color: #080a13;
+}
+.nx-hero-cta--secondary:hover,
+.nx-hero-cta--secondary:focus-visible {
+  border-color: var(--color-copper);
+  background: var(--color-raised);
+}
+.nx-hero-cta:hover .nx-hero-cta__arrow,
+.nx-hero-cta:focus-visible .nx-hero-cta__arrow {
+  transform: translateX(3px);
+}
+.nx-hero-cta--secondary .nx-hero-cta__arrow { color: var(--color-mute); }
+.nx-hero-cta--secondary:hover .nx-hero-cta__arrow,
+.nx-hero-cta--secondary:focus-visible .nx-hero-cta__arrow { color: var(--color-copper); }
+:root[data-theme="light"] .nx-hero-cta--secondary {
+  background: rgba(255, 255, 255, 0.88);
+}
+:root[data-theme="light"] .nx-hero-cta:hover,
+:root[data-theme="light"] .nx-hero-cta:focus-visible {
+  box-shadow: 7px 7px 0 rgba(112, 84, 217, 0.3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-hero-cta,
+  .nx-hero-cta__arrow { transition: none; }
+  .nx-hero-cta:hover,
+  .nx-hero-cta:focus-visible { transform: none; }
+}
+
+
+/* Layout containment: the sidebar is fixed and must never create page width.
+   Animated max-content rails are clipped by their own viewport; the document itself
+   must not become horizontally scrollable when those tracks translate. */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+#root,
+.nx-app {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.nx-app > div:not(aside) {
+  min-width: 0;
+  max-width: 100%;
+}
+#root main {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+#root main > * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+.nx-moving-rail,
+.nx-token-rail,
+.nx-nft-rail,
+.nx-moving-rail__viewport,
+.nx-token-rail__viewport,
+.nx-nft-rail__viewport {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   Interaction polish: dialogs, focus, touch targets, reduced motion
+   ========================================================================== */
+
+/* Dialog backdrop fades with the dialog instead of popping in */
+.nx-dialog-overlay[data-state="open"] { animation: nx-fade-in 160ms ease-out; }
+.nx-dialog-overlay[data-state="closed"] { animation: nx-fade-out 120ms ease-in forwards; }
+
+/* Dialogs never outgrow the viewport and long ones scroll inside */
+[role="dialog"].fixed { max-height: calc(100dvh - 1.5rem); overscroll-behavior: contain; }
+
+/* Visible keyboard focus on the navigation (the triggers have no border to carry a ring) */
+.nx-topbar__nav-trigger:focus-visible { outline: 2px solid color-mix(in oklab, var(--color-copper) 78%, white); outline-offset: -3px; border-radius: 8px; }
+.nx-topbar :is(.nx-topbar__search, .nx-topbar__theme, .nx-login-button, .nx-mobile-menu-button):focus-visible { outline: 2px solid color-mix(in oklab, var(--color-copper) 78%, white); outline-offset: 2px; }
+.nx-mobile-menu a:focus-visible { outline-offset: -2px; }
+.nx-topbar__theme:hover, .nx-topbar__search:hover, .nx-mobile-menu-button:hover { border-color: var(--nx-border-strong); color: var(--color-ink); }
+
+/* Comfortable touch targets for the bar controls */
+@media (pointer: coarse) {
+  .nx-topbar__search, .nx-topbar__theme, .nx-login-button, .nx-mobile-menu-button { min-width: 40px; height: 40px; }
+  .nx-mobile-menu a { min-height: 44px; }
+}
+
+/* Respect reduced motion everywhere; spinners keep turning so loading stays visible. */
+@media (prefers-reduced-motion: reduce) {
+  *:not(.animate-spin):not(.wlt-spin):not(.nx-wallet-spinner), *:not(.animate-spin):not(.wlt-spin)::before, *:not(.animate-spin):not(.wlt-spin)::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

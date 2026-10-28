@@ -1,0 +1,209 @@
+/* NEXORA Phase 1 — injected wallet connection UI */
+.nx-wallet-control {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-width: 0;
+  z-index: 70;
+}
+.nx-wallet-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  height: 36px;
+  max-width: 180px;
+  padding: 0 11px;
+  border: 1px solid var(--nx-border, rgba(170, 178, 205, .22));
+  border-radius: 9px;
+  background: var(--nx-control-bg, rgba(255,255,255,.04));
+  color: var(--color-ink, #f3f4fb);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+.nx-wallet-button:hover {
+  border-color: rgba(169, 154, 255, .7);
+  background: rgba(169, 154, 255, .10);
+}
+.nx-wallet-button:focus-visible,
+.nx-wallet-control button:focus-visible,
+.nx-wallet-control a:focus-visible {
+  outline: 2px solid #a99aff;
+  outline-offset: 3px;
+}
+.nx-wallet-button.is-connected {
+  border-color: rgba(111, 219, 186, .35);
+}
+.nx-wallet-status-dot,
+.nx-wallet-network__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #63d9ac;
+  box-shadow: 0 0 0 3px rgba(99, 217, 172, .10);
+}
+.nx-wallet-chevron { opacity: .7; transition: transform 160ms ease; }
+.nx-wallet-chevron.is-open { transform: rotate(180deg); }
+.nx-wallet-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(350px, calc(100vw - 24px));
+  padding: 17px;
+  border: 1px solid rgba(170, 178, 205, .22);
+  border-radius: 16px;
+  background: #10121c;
+  color: #f2f3fb;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .42), 0 2px 12px rgba(0, 0, 0, .2);
+  animation: nx-wallet-panel-in 150ms ease-out both;
+}
+.nx-wallet-panel * { box-sizing: border-box; }
+.nx-wallet-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.nx-wallet-eyebrow {
+  margin: 0 0 5px;
+  color: #aaa2df;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: .14em;
+}
+.nx-wallet-panel__header h2 {
+  margin: 0;
+  color: #f5f5fc;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -.025em;
+}
+.nx-wallet-close {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 8px;
+  background: rgba(255,255,255,.04);
+  color: #c9cada;
+  cursor: pointer;
+}
+.nx-wallet-account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 11px;
+  background: rgba(255,255,255,.035);
+}
+.nx-wallet-account__icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgba(169,154,255,.25);
+  border-radius: 10px;
+  background: rgba(169,154,255,.11);
+  color: #c7bcff;
+}
+.nx-wallet-account__copy { display: grid; min-width: 0; flex: 1; gap: 4px; }
+.nx-wallet-account__copy strong { font-size: 12px; font-weight: 650; }
+.nx-wallet-account__copy span { overflow: hidden; color: #a7a9bc; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-overflow: ellipsis; }
+.nx-wallet-connected-check { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; background: rgba(99,217,172,.12); color: #63d9ac; }
+.nx-wallet-network {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 11px;
+  background: rgba(255,255,255,.025);
+}
+.nx-wallet-network__dot { background: #63d9ac; }
+.nx-wallet-network.is-warning .nx-wallet-network__dot { background: #ffbf69; box-shadow: 0 0 0 3px rgba(255,191,105,.10); }
+.nx-wallet-network > div { display: grid; gap: 4px; min-width: 0; }
+.nx-wallet-network small,
+.nx-wallet-supported > span { color: #888da5; font-size: 9px; font-weight: 750; letter-spacing: .12em; }
+.nx-wallet-network strong { color: #e6e7f1; font-size: 11px; font-weight: 600; overflow-wrap: anywhere; }
+.nx-wallet-description,
+.nx-wallet-note,
+.nx-wallet-footnote { color: #a5a8bc; font-size: 11px; line-height: 1.6; }
+.nx-wallet-description { margin: 0 0 14px; }
+.nx-wallet-note { display: flex; align-items: flex-start; gap: 7px; color: #ffcf8b; margin: 10px 0 0; }
+.nx-wallet-note svg { flex: 0 0 auto; margin-top: 2px; }
+.nx-wallet-primary,
+.nx-wallet-secondary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+.nx-wallet-primary { background: #b7a8ff; color: #10101a; }
+.nx-wallet-primary:hover { background: #c6bbff; }
+.nx-wallet-primary:disabled { opacity: .65; cursor: wait; }
+.nx-wallet-secondary { margin-top: 12px; border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: #e5e5f0; }
+.nx-wallet-secondary:hover { border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.07); }
+.nx-wallet-footnote { margin: 10px 0 0; font-size: 10px; }
+.nx-wallet-security { padding-top: 10px; border-top: 1px solid rgba(255,255,255,.08); }
+.nx-wallet-supported { display: grid; gap: 8px; margin-top: 15px; padding-top: 13px; border-top: 1px solid rgba(255,255,255,.08); }
+.nx-wallet-supported > div { display: flex; flex-wrap: wrap; gap: 6px; }
+.nx-wallet-supported > div span { padding: 5px 7px; border: 1px solid rgba(255,255,255,.09); border-radius: 6px; color: #b8bbce; font-size: 10px; }
+.nx-wallet-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid rgba(255, 115, 115, .24);
+  border-radius: 9px;
+  background: rgba(255, 115, 115, .07);
+  color: #ffb0b0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.nx-wallet-error > svg { flex: 0 0 auto; margin-top: 1px; }
+.nx-wallet-error span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.nx-wallet-error button { flex: 0 0 auto; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.nx-wallet-spinner { animation: nx-wallet-spin 1s linear infinite; }
+@keyframes nx-wallet-spin { to { transform: rotate(360deg); } }
+@keyframes nx-wallet-panel-in { from { opacity: 0; transform: translateY(-4px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 1120px) {
+  .nx-wallet-button { max-width: 145px; padding-inline: 9px; gap: 6px; }
+}
+@media (max-width: 860px) {
+  .nx-wallet-panel { position: fixed; top: 70px; right: 12px; }
+}
+@media (max-width: 520px) {
+  .nx-wallet-button { height: 34px; max-width: 42px; width: 42px; padding: 0; }
+  .nx-wallet-button > span:not(.nx-wallet-status-dot) { display: none; }
+  .nx-wallet-chevron { display: none; }
+  .nx-wallet-panel { top: 64px; right: 8px; width: min(350px, calc(100vw - 16px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-wallet-button, .nx-wallet-chevron, .nx-wallet-panel { animation: none; transition: none; }
+}

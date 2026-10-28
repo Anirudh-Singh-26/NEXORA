@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Collections masthead — editorial opening. Scoped with `nxc-mast` / `nxc-fan`.
+   Text laid over artwork stays light in both themes.
+   ========================================================================== */
+.nxc-mast { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; min-width: 0; }
+@media (min-width: 980px) { .nxc-mast { grid-template-columns: minmax(0, 1fr) 340px; align-items: center; gap: 44px; } }
+
+.nxc-mast__copy { min-width: 0; }
+.nxc-mast__kicker { display: flex; align-items: center; gap: 10px; }
+.nxc-mast__kicker::after { content: ""; height: 1px; width: 44px; background: color-mix(in srgb, var(--color-copper) 55%, transparent); }
+.nxc-mast__title { margin-top: 10px; font-family: var(--font-display); font-size: clamp(2.5rem, 5.2vw, 3.7rem); font-weight: 650; line-height: 0.92; letter-spacing: -0.055em; }
+.nxc-mast__deck { margin-top: 12px; max-width: 34rem; font-size: 15px; line-height: 1.55; color: var(--color-mute); text-wrap: balance; }
+
+.nxc-mast__stats { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; margin-top: 20px; }
+.nxc-mast__stats > div { padding: 0 22px; border-left: 1px solid var(--nx-border); }
+.nxc-mast__stats > div:first-child { padding-left: 0; border-left: 0; }
+.nxc-mast__stats dt { font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-mute); }
+.nxc-mast__stats dd { margin-top: 4px; font-family: var(--font-mono); font-size: 22px; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+
+.nxc-mast__cats { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+.nxc-cat { display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--nx-border); font-size: 12px; color: var(--color-mute); transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease; }
+.nxc-cat b { font-family: var(--font-mono); font-size: 10.5px; font-weight: 400; opacity: 0.75; }
+.nxc-cat:hover:not(:disabled) { color: var(--color-ink); border-color: var(--nx-border-strong); background: color-mix(in srgb, var(--color-copper) 10%, transparent); }
+.nxc-cat:disabled { opacity: 0.4; cursor: not-allowed; }
+.nxc-mast__note { margin-top: 12px; font-size: 11px; color: color-mix(in srgb, var(--color-mute) 85%, transparent); }
+
+/* Fanned cover stack ----------------------------------------------------- */
+.nxc-fan { position: relative; display: none; height: 232px; }
+@media (min-width: 980px) { .nxc-fan { display: block; } }
+.nxc-fan__card { position: absolute; bottom: 0; width: 172px; height: 214px; border-radius: 16px; overflow: hidden; isolation: isolate; border: 1px solid rgba(255, 255, 255, 0.14); color: #f4f6ff; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.55); transition: transform 320ms var(--nx-ease), box-shadow 320ms var(--nx-ease); }
+.nxc-fan__card.is-0 { left: 84px; z-index: 3; transform: rotate(0deg); }
+.nxc-fan__card.is-1 { left: 0; z-index: 2; transform: translateY(-6px) rotate(-8deg); }
+.nxc-fan__card.is-2 { right: 0; z-index: 1; transform: translateY(-6px) rotate(8deg); }
+.nxc-fan:hover .nxc-fan__card.is-0 { transform: translateY(-4px); }
+.nxc-fan__card:hover, .nxc-fan__card:focus-visible { z-index: 4; transform: translateY(-12px) rotate(0deg) !important; box-shadow: 0 26px 48px -16px rgba(0, 0, 0, 0.65); }
+.nxc-fan__art { position: absolute; inset: 0; }
+.nxc-fan__card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(7, 9, 18, 0.88) 0%, rgba(7, 9, 18, 0.1) 58%); pointer-events: none; }
+.nxc-fan__cap { position: absolute; left: 12px; right: 12px; bottom: 11px; z-index: 2; display: flex; flex-direction: column; gap: 2px; }
+.nxc-fan__cap small { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(236, 240, 255, 0.7); }
+.nxc-fan__cap b { font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nxc-fan__cap i { display: inline-flex; align-items: center; gap: 3px; font-style: normal; font-family: var(--font-mono); font-size: 11px; color: rgba(236, 240, 255, 0.82); }
+
+/* Section rules that separate masthead, featured zone and directory ------ */
+.nxc-rule { display: flex; align-items: center; gap: 12px; }
+.nxc-rule span { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-mute); }
+.nxc-rule span b { margin-right: 8px; font-family: var(--font-mono); font-weight: 400; color: var(--color-copper); }
+.nxc-rule::after { content: ""; flex: 1; height: 1px; background: var(--nx-border); }
+
+@media (max-width: 560px) {
+  .nxc-mast__stats { grid-template-columns: repeat(2, auto); row-gap: 14px; }
+  .nxc-mast__stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .nxc-mast__deck { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nxc-fan__card, .nxc-cat { transition: none; }
+}
+:root[data-motion="reduced"] .nxc-fan__card, :root[data-motion="reduced"] .nxc-cat { transition: none; }
+
+/* The "02 Browse" rule replaces the directory heading's own top border */
+.nxc-directory .nxc-directory__head { border-top: 0; padding-top: 0; }
+
+/* Side covers keep their captions hidden until revealed, since the front card overlaps them */
+.nxc-fan__card.is-1 .nxc-fan__cap, .nxc-fan__card.is-2 .nxc-fan__cap { opacity: 0; transition: opacity 200ms ease; }
+.nxc-fan__card.is-1:hover .nxc-fan__cap, .nxc-fan__card.is-2:hover .nxc-fan__cap,
+.nxc-fan__card.is-1:focus-visible .nxc-fan__cap, .nxc-fan__card.is-2:focus-visible .nxc-fan__cap { opacity: 1; }

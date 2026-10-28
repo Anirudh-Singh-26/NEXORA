@@ -1,0 +1,253 @@
+/* Isolated NFT marketplace rail — compact, artwork-led, and responsive. */
+.nx-nft-market-rail {
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 0.4rem;
+}
+.nx-nft-market-rail__viewport {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: 3px 6px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 2%, #000 98%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 2%, #000 98%, transparent 100%);
+}
+.nx-nft-market-rail__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: nx-nft-market-marquee 150s linear infinite;
+}
+.nx-nft-market-rail__group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+  gap: 0.7rem;
+  padding-right: 0.7rem;
+}
+.nx-nft-market-rail__viewport:hover .nx-nft-market-rail__track,
+.nx-nft-market-rail__viewport:focus-within .nx-nft-market-rail__track {
+  animation-play-state: paused;
+}
+.nx-nft-market-rail__card {
+  position: relative;
+  display: flex;
+  flex: 0 0 224px;
+  width: 224px;
+  min-width: 0;
+  min-height: 76px;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.52rem;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, rgba(17, 22, 37, 0.98), rgba(9, 12, 22, 0.98));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.nx-nft-market-rail__card:hover,
+.nx-nft-market-rail__card:focus-visible {
+  z-index: 2;
+  border-color: rgba(169,154,255,0.48);
+  background: linear-gradient(135deg, rgba(22, 27, 46, 0.99), rgba(11, 15, 28, 0.99));
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  transform: translateY(-1px);
+  outline: none;
+}
+.nx-nft-market-rail__art {
+  position: relative;
+  display: block;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 0.62rem;
+  background: var(--color-inset);
+}
+.nx-nft-market-rail__art > img,
+.nx-nft-market-rail__art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 320ms ease;
+}
+.nx-nft-market-rail__card:hover .nx-nft-market-rail__art img { transform: scale(1.045); }
+.nx-nft-market-rail__token-id {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  max-width: calc(100% - 8px);
+  overflow: hidden;
+  padding: 1px 4px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  background: rgba(5,7,15,0.76);
+  color: #eef1fc;
+  font: 9px/1.4 var(--font-mono);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nx-nft-market-rail__details {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.nx-nft-market-rail__title-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+}
+.nx-nft-market-rail__name {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-ink);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+.nx-nft-market-rail__card:hover .nx-nft-market-rail__name { color: var(--color-copper); }
+.nx-nft-market-rail__arrow {
+  flex: 0 0 13px;
+  width: 13px;
+  height: 13px;
+  color: var(--color-mute);
+  opacity: 0.52;
+  transition: opacity 180ms ease, transform 180ms ease, color 180ms ease;
+}
+.nx-nft-market-rail__card:hover .nx-nft-market-rail__arrow {
+  color: var(--color-copper);
+  opacity: 1;
+  transform: translate(1px,-1px);
+}
+.nx-nft-market-rail__collection {
+  overflow: hidden;
+  color: var(--color-mute);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nx-nft-market-rail__meta {
+  display: flex;
+  min-width: 0;
+  align-items: end;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 3px;
+}
+.nx-nft-market-rail__sale {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 4px;
+}
+.nx-nft-market-rail__label {
+  color: var(--color-mute);
+  font-size: 9px;
+  white-space: nowrap;
+}
+.nx-nft-market-rail__price {
+  overflow: hidden;
+  color: var(--color-ink);
+  font: 10px/1.35 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nx-nft-market-rail__network {
+  flex: 0 0 auto;
+  border: 1px solid var(--nx-border);
+  border-radius: 999px;
+  padding: 2px 5px;
+  color: var(--color-mute);
+  font: 9px/1.2 var(--font-mono);
+}
+@keyframes nx-nft-market-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+:root[data-theme="light"] .nx-nft-market-rail__card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.99), rgba(244,246,252,0.99));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.92), 0 4px 14px rgba(29,38,72,0.05);
+}
+:root[data-theme="light"] .nx-nft-market-rail__card:hover {
+  background: linear-gradient(135deg, #fff, #f5f2ff);
+}
+:root[data-theme="light"] .nx-nft-market-rail__token-id {
+  border-color: rgba(20,25,44,0.12);
+  background: rgba(20,25,44,0.72);
+}
+@media (max-width: 640px) {
+  .nx-nft-market-rail__card { flex-basis: 220px; width: 220px; min-height: 74px; padding: 0.42rem 0.48rem; gap: 0.5rem; }
+  .nx-nft-market-rail__art { flex-basis: 50px; width: 50px; height: 50px; }
+  .nx-nft-market-rail__track { animation-duration: 165s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-nft-market-rail__track { animation: none; }
+  .nx-nft-market-rail__card, .nx-nft-market-rail__art img { transition: none; }
+}
+
+/* Keep the marketplace tile compact and prevent image/text flex overflow. */
+.nx-nft-market-rail__art { align-self: center; flex-shrink: 0; }
+.nx-nft-market-rail__art img { object-position: center; }
+.nx-nft-market-rail__details,
+.nx-nft-market-rail__title-row,
+.nx-nft-market-rail__meta,
+.nx-nft-market-rail__sale { min-width: 0; }
+.nx-nft-market-rail__sale { flex-wrap: wrap; row-gap: 0; }
+.nx-nft-market-rail__network { margin-left: auto; }
+@media (max-width: 420px) {
+  .nx-nft-market-rail__card { flex-basis: 208px; width: 208px; }
+  .nx-nft-market-rail__art { flex-basis: 46px; width: 46px; height: 46px; }
+}
+
+.nx-nft-market-rail__meta-side {
+  display: flex;
+  min-width: 0;
+  flex: 0 1 auto;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.nx-nft-market-rail__floor {
+  display: inline-flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 3px;
+  color: var(--color-mute);
+}
+.nx-nft-market-rail__floor .nx-nft-market-rail__price { font-size: 9px; }
+@media (max-width: 520px) {
+  .nx-nft-market-rail__meta-side { gap: 3px; }
+  .nx-nft-market-rail__floor .nx-nft-market-rail__label { display: none; }
+  .nx-nft-market-rail__floor .nx-nft-market-rail__price { font-size: 9px; }
+}
+
+/* Touch devices and reduced motion: swipe the rail instead of watching an auto-scroll. */
+@media (pointer: coarse) {
+  .nx-nft-market-rail__viewport { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .nx-nft-market-rail__viewport::-webkit-scrollbar { display: none; }
+  .nx-nft-market-rail__track { animation: none; }
+  .nx-nft-market-rail__group[aria-hidden='true'] { display: none; }
+  .nx-nft-market-rail__viewport { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-nft-market-rail__viewport { overflow-x: auto; scrollbar-width: none; }
+  .nx-nft-market-rail__viewport::-webkit-scrollbar { display: none; }
+  .nx-nft-market-rail__group[aria-hidden='true'] { display: none; }
+  .nx-nft-market-rail__viewport { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+}
+:root[data-motion='reduced'] .nx-nft-market-rail__track { animation: none; }
+:root[data-motion='reduced'] .nx-nft-market-rail__viewport { overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+:root[data-motion='reduced'] .nx-nft-market-rail__group[aria-hidden='true'] { display: none; }

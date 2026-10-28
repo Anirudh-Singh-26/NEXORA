@@ -1,0 +1,681 @@
+{
+  "version": "1.0.0",
+  "sourceNote": "User-supplied Pinterest discoveries. Original creator and reuse licence are not verified; review before public/commercial deployment.",
+  "assets": [
+    {
+      "id": "cyberpunk-pilot-portrait",
+      "fileName": "cyberpunk-pilot-portrait.jpg",
+      "path": "/images/nexora/imported/cyberpunk-pilot-portrait.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 720,
+      "height": 900,
+      "sourceFile": "Gamer.jpg"
+    },
+    {
+      "id": "neon-vr-streetwear-portrait",
+      "fileName": "neon-vr-streetwear-portrait.jpg",
+      "path": "/images/nexora/imported/neon-vr-streetwear-portrait.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Vr5.jpg"
+    },
+    {
+      "id": "magenta-vr-visor-avatar",
+      "fileName": "magenta-vr-visor-avatar.jpg",
+      "path": "/images/nexora/imported/magenta-vr-visor-avatar.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Vr7.jpg"
+    },
+    {
+      "id": "blue-haired-cyberpunk-portrait",
+      "fileName": "blue-haired-cyberpunk-portrait.jpg",
+      "path": "/images/nexora/imported/blue-haired-cyberpunk-portrait.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 915,
+      "sourceFile": "download (13).jpg"
+    },
+    {
+      "id": "pink-haired-neon-portrait",
+      "fileName": "pink-haired-neon-portrait.jpg",
+      "path": "/images/nexora/imported/pink-haired-neon-portrait.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 914,
+      "sourceFile": "download (14).jpg"
+    },
+    {
+      "id": "violet-haired-futurist-portrait",
+      "fileName": "violet-haired-futurist-portrait.jpg",
+      "path": "/images/nexora/imported/violet-haired-futurist-portrait.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 735,
+      "height": 848,
+      "sourceFile": "download (15).jpg"
+    },
+    {
+      "id": "retro-helmet-cyberpunk-avatar",
+      "fileName": "retro-helmet-cyberpunk-avatar.jpg",
+      "path": "/images/nexora/imported/retro-helmet-cyberpunk-avatar.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 588,
+      "sourceFile": "download (16).jpg"
+    },
+    {
+      "id": "violet-hooded-cyberpunk-portrait",
+      "fileName": "violet-hooded-cyberpunk-portrait.jpg",
+      "path": "/images/nexora/imported/violet-hooded-cyberpunk-portrait.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (17).jpg"
+    },
+    {
+      "id": "neon-headset-avatar",
+      "fileName": "neon-headset-avatar.jpg",
+      "path": "/images/nexora/imported/neon-headset-avatar.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (18).jpg"
+    },
+    {
+      "id": "red-visor-helmet-avatar",
+      "fileName": "red-visor-helmet-avatar.jpg",
+      "path": "/images/nexora/imported/red-visor-helmet-avatar.jpg",
+      "sourceCategory": "Cyberpunk and virtual worlds",
+      "width": 736,
+      "height": 1041,
+      "sourceFile": "download (19).jpg"
+    },
+    {
+      "id": "pixelated-woodland-collectible",
+      "fileName": "pixelated-woodland-collectible.jpg",
+      "path": "/images/nexora/imported/pixelated-woodland-collectible.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 400,
+      "height": 400,
+      "sourceFile": "NFT.jpg"
+    },
+    {
+      "id": "glitch-fusion-portrait",
+      "fileName": "glitch-fusion-portrait.jpg",
+      "path": "/images/nexora/imported/glitch-fusion-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 640,
+      "height": 832,
+      "sourceFile": "Glitch Fusion #01.jpg"
+    },
+    {
+      "id": "digital-mona-pattern-study",
+      "fileName": "digital-mona-pattern-study.jpg",
+      "path": "/images/nexora/imported/digital-mona-pattern-study.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 957,
+      "sourceFile": "Editorial Illustration 2016 - 2017 on Behance.jpg"
+    },
+    {
+      "id": "pixel-noise-portrait",
+      "fileName": "pixel-noise-portrait.jpg",
+      "path": "/images/nexora/imported/pixel-noise-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "#8566-3.jpg"
+    },
+    {
+      "id": "blue-glass-portrait",
+      "fileName": "blue-glass-portrait.jpg",
+      "path": "/images/nexora/imported/blue-glass-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 920,
+      "sourceFile": "Artz Now _ 1969257799004639478.jpg"
+    },
+    {
+      "id": "generative-fragmented-portrait",
+      "fileName": "generative-fragmented-portrait.jpg",
+      "path": "/images/nexora/imported/generative-fragmented-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 856,
+      "sourceFile": "The Generative Portraiture of Espen Kluge #U2014 Artnome.jpg"
+    },
+    {
+      "id": "chromatic-robot-portrait",
+      "fileName": "chromatic-robot-portrait.jpg",
+      "path": "/images/nexora/imported/chromatic-robot-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "2023 Playbook x Leo Natsume#U00a0_ NFT Collection - Leo Natsume.jpg"
+    },
+    {
+      "id": "crimson-halo-silhouette",
+      "fileName": "crimson-halo-silhouette.jpg",
+      "path": "/images/nexora/imported/crimson-halo-silhouette.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 920,
+      "sourceFile": "are you even trying_.jpg"
+    },
+    {
+      "id": "minimal-skull-illustration",
+      "fileName": "minimal-skull-illustration.jpg",
+      "path": "/images/nexora/imported/minimal-skull-illustration.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 335,
+      "height": 335,
+      "sourceFile": "NFTs Digital Art & Passive Income.jpg"
+    },
+    {
+      "id": "wireframe-face-study",
+      "fileName": "wireframe-face-study.jpg",
+      "path": "/images/nexora/imported/wireframe-face-study.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 605,
+      "height": 605,
+      "sourceFile": "soem).jpg"
+    },
+    {
+      "id": "iridescent-crystal-portrait",
+      "fileName": "iridescent-crystal-portrait.jpg",
+      "path": "/images/nexora/imported/iridescent-crystal-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 640,
+      "height": 640,
+      "sourceFile": "download (13).jpg"
+    },
+    {
+      "id": "black-orbit-figure",
+      "fileName": "black-orbit-figure.jpg",
+      "path": "/images/nexora/imported/black-orbit-figure.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 904,
+      "sourceFile": "download (14).jpg"
+    },
+    {
+      "id": "red-grid-human-portrait",
+      "fileName": "red-grid-human-portrait.jpg",
+      "path": "/images/nexora/imported/red-grid-human-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 564,
+      "height": 847,
+      "sourceFile": "download (15).jpg"
+    },
+    {
+      "id": "faceted-purple-creature",
+      "fileName": "faceted-purple-creature.jpg",
+      "path": "/images/nexora/imported/faceted-purple-creature.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (16).jpg"
+    },
+    {
+      "id": "color-fragmented-face",
+      "fileName": "color-fragmented-face.jpg",
+      "path": "/images/nexora/imported/color-fragmented-face.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 615,
+      "height": 853,
+      "sourceFile": "download (17).jpg"
+    },
+    {
+      "id": "blue-astronaut-portrait",
+      "fileName": "blue-astronaut-portrait.jpg",
+      "path": "/images/nexora/imported/blue-astronaut-portrait.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 856,
+      "sourceFile": "download (18).jpg"
+    },
+    {
+      "id": "pink-neural-sculpture",
+      "fileName": "pink-neural-sculpture.jpg",
+      "path": "/images/nexora/imported/pink-neural-sculpture.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (19).jpg"
+    },
+    {
+      "id": "astronaut-helmet-generative-art",
+      "fileName": "astronaut-helmet-generative-art.jpg",
+      "path": "/images/nexora/imported/astronaut-helmet-generative-art.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 920,
+      "sourceFile": "#midjourney #midjourneyart #midjourneyai #midjourneyartwork #art #artwork #artificialintelligence #digitalart #prompt #generativeart #helmet #astronout.jpg"
+    },
+    {
+      "id": "surreal-red-blue-profile",
+      "fileName": "surreal-red-blue-profile.jpg",
+      "path": "/images/nexora/imported/surreal-red-blue-profile.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 890,
+      "sourceFile": "#ai #aiart #aiartist #aiartists #fantasy #unreal #aiartcommunity #artificialintelligence #digitalartist #digitalart #midjourney #midjourneyart #instagram #instagood #picoftheday #art #artist #artwork #picture.jpg"
+    },
+    {
+      "id": "iridescent-sculpted-face",
+      "fileName": "iridescent-sculpted-face.jpg",
+      "path": "/images/nexora/imported/iridescent-sculpted-face.jpg",
+      "sourceCategory": "Abstract and generative NFT art",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "@philiplueck #U2022 Instagram photos and videos.jpg"
+    },
+    {
+      "id": "pink-skater-character",
+      "fileName": "pink-skater-character.jpg",
+      "path": "/images/nexora/imported/pink-skater-character.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Sk8pes NFT.jpg"
+    },
+    {
+      "id": "cosmic-girl-avatar",
+      "fileName": "cosmic-girl-avatar.jpg",
+      "path": "/images/nexora/imported/cosmic-girl-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 731,
+      "sourceFile": "credit_[marianne].jpg"
+    },
+    {
+      "id": "anime-warrior-red-backdrop",
+      "fileName": "anime-warrior-red-backdrop.jpg",
+      "path": "/images/nexora/imported/anime-warrior-red-backdrop.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Azuki NFT #3.jpg"
+    },
+    {
+      "id": "blue-cat-anime-avatar",
+      "fileName": "blue-cat-anime-avatar.jpg",
+      "path": "/images/nexora/imported/blue-cat-anime-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Azuki NFT #94.jpg"
+    },
+    {
+      "id": "magenta-cap-streetwear-avatar",
+      "fileName": "magenta-cap-streetwear-avatar.jpg",
+      "path": "/images/nexora/imported/magenta-cap-streetwear-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Volus #1021.jpg"
+    },
+    {
+      "id": "silver-haired-mask-avatar",
+      "fileName": "silver-haired-mask-avatar.jpg",
+      "path": "/images/nexora/imported/silver-haired-mask-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 600,
+      "height": 600,
+      "sourceFile": "NFT Crypto Art & NFT Art Ideas.jpg"
+    },
+    {
+      "id": "pink-haired-anime-character",
+      "fileName": "pink-haired-anime-character.jpg",
+      "path": "/images/nexora/imported/pink-haired-anime-character.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "(13).jpg"
+    },
+    {
+      "id": "mint-cat-streetwear-avatar",
+      "fileName": "mint-cat-streetwear-avatar.jpg",
+      "path": "/images/nexora/imported/mint-cat-streetwear-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 676,
+      "height": 676,
+      "sourceFile": "download (13).jpg"
+    },
+    {
+      "id": "green-fantasy-character",
+      "fileName": "green-fantasy-character.jpg",
+      "path": "/images/nexora/imported/green-fantasy-character.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (14).jpg"
+    },
+    {
+      "id": "purple-neon-mask-avatar",
+      "fileName": "purple-neon-mask-avatar.jpg",
+      "path": "/images/nexora/imported/purple-neon-mask-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (15).jpg"
+    },
+    {
+      "id": "pastel-cat-avatar",
+      "fileName": "pastel-cat-avatar.jpg",
+      "path": "/images/nexora/imported/pastel-cat-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (16).jpg"
+    },
+    {
+      "id": "dark-haired-anime-avatar",
+      "fileName": "dark-haired-anime-avatar.jpg",
+      "path": "/images/nexora/imported/dark-haired-anime-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (17).jpg"
+    },
+    {
+      "id": "blue-haired-visor-avatar",
+      "fileName": "blue-haired-visor-avatar.jpg",
+      "path": "/images/nexora/imported/blue-haired-visor-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 655,
+      "height": 656,
+      "sourceFile": "download (18).jpg"
+    },
+    {
+      "id": "bucket-hat-anime-avatar",
+      "fileName": "bucket-hat-anime-avatar.jpg",
+      "path": "/images/nexora/imported/bucket-hat-anime-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (19).jpg"
+    },
+    {
+      "id": "shadow-fan-streetwear-avatar",
+      "fileName": "shadow-fan-streetwear-avatar.jpg",
+      "path": "/images/nexora/imported/shadow-fan-streetwear-avatar.jpg",
+      "sourceCategory": "NFT avatars and characters",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (20).jpg"
+    },
+    {
+      "id": "blockchain-network-illustration",
+      "fileName": "blockchain-network-illustration.jpg",
+      "path": "/images/nexora/imported/blockchain-network-illustration.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 735,
+      "height": 412,
+      "sourceFile": "20 Best Examples of Blockchain Technology.jpg"
+    },
+    {
+      "id": "blockchain-trends-infographic",
+      "fileName": "blockchain-trends-infographic.jpg",
+      "path": "/images/nexora/imported/blockchain-trends-infographic.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 735,
+      "height": 490,
+      "sourceFile": "Top Blockchain Development Trends You Can't Miss In 2026.jpg"
+    },
+    {
+      "id": "blockchain-blocks-illustration",
+      "fileName": "blockchain-blocks-illustration.jpg",
+      "path": "/images/nexora/imported/blockchain-blocks-illustration.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 736,
+      "height": 920,
+      "sourceFile": "Blockchain Where Every Block Builds a Smarter World!.jpg"
+    },
+    {
+      "id": "blockchain-explainer-graphic",
+      "fileName": "blockchain-explainer-graphic.jpg",
+      "path": "/images/nexora/imported/blockchain-explainer-graphic.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 735,
+      "height": 974,
+      "sourceFile": "how-does-blockchain-work.jpg"
+    },
+    {
+      "id": "ai-network-orb-illustration",
+      "fileName": "ai-network-orb-illustration.jpg",
+      "path": "/images/nexora/imported/ai-network-orb-illustration.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "ai.jpg"
+    },
+    {
+      "id": "purple-digital-ledger-illustration",
+      "fileName": "purple-digital-ledger-illustration.jpg",
+      "path": "/images/nexora/imported/purple-digital-ledger-illustration.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (13).jpg"
+    },
+    {
+      "id": "violet-blockchain-nodes",
+      "fileName": "violet-blockchain-nodes.jpg",
+      "path": "/images/nexora/imported/violet-blockchain-nodes.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 734,
+      "height": 412,
+      "sourceFile": "download (14).jpg"
+    },
+    {
+      "id": "blockchain-game-world-scene",
+      "fileName": "blockchain-game-world-scene.jpg",
+      "path": "/images/nexora/imported/blockchain-game-world-scene.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Minecraft PP.jpg"
+    },
+    {
+      "id": "secure-blockchain-network",
+      "fileName": "secure-blockchain-network.jpg",
+      "path": "/images/nexora/imported/secure-blockchain-network.jpg",
+      "sourceCategory": "Blockchain and ecosystem visuals",
+      "width": 735,
+      "height": 556,
+      "sourceFile": "#L01f517 The Power of Blockchain_ A More Secure & Transparent World.jpg"
+    },
+    {
+      "id": "dark-relic-keeper",
+      "fileName": "dark-relic-keeper.jpg",
+      "path": "/images/nexora/imported/dark-relic-keeper.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 977,
+      "sourceFile": "idea_ai - Tools for the new creative class.jpg"
+    },
+    {
+      "id": "storm-eye-crystal-orb",
+      "fileName": "storm-eye-crystal-orb.jpg",
+      "path": "/images/nexora/imported/storm-eye-crystal-orb.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 734,
+      "sourceFile": "White Eye of the Storm.jpg"
+    },
+    {
+      "id": "onyx-mech-mask",
+      "fileName": "onyx-mech-mask.jpg",
+      "path": "/images/nexora/imported/onyx-mech-mask.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 512,
+      "height": 512,
+      "sourceFile": "Mech.jpg"
+    },
+    {
+      "id": "magnetar-mech-core",
+      "fileName": "magnetar-mech-core.jpg",
+      "path": "/images/nexora/imported/magnetar-mech-core.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "Magnetar (Mech).jpg"
+    },
+    {
+      "id": "ancient-planetary-orb",
+      "fileName": "ancient-planetary-orb.jpg",
+      "path": "/images/nexora/imported/ancient-planetary-orb.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (13).jpg"
+    },
+    {
+      "id": "black-red-energy-artifact",
+      "fileName": "black-red-energy-artifact.jpg",
+      "path": "/images/nexora/imported/black-red-energy-artifact.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (14).jpg"
+    },
+    {
+      "id": "celestial-relic-in-glass",
+      "fileName": "celestial-relic-in-glass.jpg",
+      "path": "/images/nexora/imported/celestial-relic-in-glass.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 1055,
+      "sourceFile": "download (15).jpg"
+    },
+    {
+      "id": "violet-tech-crystal",
+      "fileName": "violet-tech-crystal.jpg",
+      "path": "/images/nexora/imported/violet-tech-crystal.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (16).jpg"
+    },
+    {
+      "id": "purple-altar-artifact",
+      "fileName": "purple-altar-artifact.jpg",
+      "path": "/images/nexora/imported/purple-altar-artifact.jpg",
+      "sourceCategory": "Fantasy artifacts and collectible objects",
+      "width": 736,
+      "height": 736,
+      "sourceFile": "download (17).jpg"
+    },
+    {
+      "id": "violet-neon-abstract-banner",
+      "fileName": "violet-neon-abstract-banner.jpg",
+      "path": "/images/nexora/imported/violet-neon-abstract-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "download (16).jpg"
+    },
+    {
+      "id": "dark-red-abstract-banner",
+      "fileName": "dark-red-abstract-banner.jpg",
+      "path": "/images/nexora/imported/dark-red-abstract-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "Wallpaper laptop.jpg"
+    },
+    {
+      "id": "neon-purple-racing-banner",
+      "fileName": "neon-purple-racing-banner.jpg",
+      "path": "/images/nexora/imported/neon-purple-racing-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 735,
+      "height": 414,
+      "sourceFile": "Neon Purple Toyota Supra Race Car AI Art Wallpaper - backiee.jpg"
+    },
+    {
+      "id": "glowing-amber-violet-swirl-banner",
+      "fileName": "glowing-amber-violet-swirl-banner.jpg",
+      "path": "/images/nexora/imported/glowing-amber-violet-swirl-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "Glowing abstract swirl Windows 11 lock screen wallpaper_  #LockScreen #Wallpaper4K #Wallpapers #Windows #Windows11LockScreenWallpaper4K.jpg"
+    },
+    {
+      "id": "purple-fluid-abstract-banner",
+      "fileName": "purple-fluid-abstract-banner.jpg",
+      "path": "/images/nexora/imported/purple-fluid-abstract-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "Abstract Wallpaper _ @eruma_abs.jpg"
+    },
+    {
+      "id": "superhero-comic-banner-review-license",
+      "fileName": "superhero-comic-banner-review-license.jpg",
+      "path": "/images/nexora/imported/superhero-comic-banner-review-license.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "spiderman wallpaper.jpg"
+    },
+    {
+      "id": "violet-gaming-neon-banner",
+      "fileName": "violet-gaming-neon-banner.jpg",
+      "path": "/images/nexora/imported/violet-gaming-neon-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "LUCES GAMER.jpg"
+    },
+    {
+      "id": "violet-cosmic-ring-banner",
+      "fileName": "violet-cosmic-ring-banner.jpg",
+      "path": "/images/nexora/imported/violet-cosmic-ring-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "download (13).jpg"
+    },
+    {
+      "id": "monochrome-violet-wave-banner",
+      "fileName": "monochrome-violet-wave-banner.jpg",
+      "path": "/images/nexora/imported/monochrome-violet-wave-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 368,
+      "sourceFile": "a purple and black background with a large black and white design.jpg"
+    },
+    {
+      "id": "red-gold-fractal-banner",
+      "fileName": "red-gold-fractal-banner.jpg",
+      "path": "/images/nexora/imported/red-gold-fractal-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 735,
+      "height": 502,
+      "sourceFile": "download (15).jpg"
+    },
+    {
+      "id": "violet-glass-wave-banner",
+      "fileName": "violet-glass-wave-banner.jpg",
+      "path": "/images/nexora/imported/violet-glass-wave-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 736,
+      "height": 414,
+      "sourceFile": "Windows 11 wallpaper violet.jpg"
+    },
+    {
+      "id": "purple-light-tunnel-banner",
+      "fileName": "purple-light-tunnel-banner.jpg",
+      "path": "/images/nexora/imported/purple-light-tunnel-banner.jpg",
+      "sourceCategory": "Wide collection covers and drop banners",
+      "width": 564,
+      "height": 278,
+      "sourceFile": "download (14).jpg"
+    }
+  ]
+}

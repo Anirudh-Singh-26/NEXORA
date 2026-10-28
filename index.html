@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Scroll restoration must start before React/Vite mount. React effects run too
+      late for a hard refresh when the route is lazy-loaded and the document is
+      temporarily too short to accept the saved scroll offset.
+    -->
+    <script>
+      (() => {
+        const prefix = 'nexora:scroll-position:';
+        const heightPrefix = 'nexora:scroll-height:';
+        const pathKey = () => prefix + location.pathname;
+        const heightKey = () => heightPrefix + location.pathname;
+        const readNumber = (key) => {
+          try {
+            const n = Number(sessionStorage.getItem(key) || 0);
+            return Number.isFinite(n) && n > 0 ? n : 0;
+          } catch { return 0; }
+        };
+        let restoring = false;
+        let restoreTimer = 0;
+        let observer = null;
+        let frame = 0;
+        let savedY = 0;
+        let finished = false;
+
+        try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch {}
+        savedY = readNumber(pathKey());
+        const savedHeight = readNumber(heightKey());
+
+        const getHeight = () => Math.max(
+          document.documentElement?.scrollHeight || 0,
+          document.body?.scrollHeight || 0
+        );
+        const maxScroll = () => Math.max(0, getHeight() - window.innerHeight);
+        // Measure rendered content, not the temporary document-height reserve.
+        const realContentMaxScroll = () => {
+          const root = document.getElementById('root');
+          const contentHeight = Math.max(
+            document.body?.scrollHeight || 0,
+            root?.scrollHeight || 0
+          );
+          return Math.max(0, contentHeight - window.innerHeight);
+        };
+        const save = () => {
+          if (restoring) return;
+          try {
+            sessionStorage.setItem(pathKey(), String(Math.max(0, Math.round(window.scrollY || document.scrollingElement?.scrollTop || 0))));
+            sessionStorage.setItem(heightKey(), String(Math.max(getHeight(), document.documentElement?.scrollHeight || 0)));
+          } catch {}
+        };
+        const cleanup = () => {
+          if (observer) observer.disconnect();
+          if (restoreTimer) clearTimeout(restoreTimer);
+          if (frame) cancelAnimationFrame(frame);
+        };
+        const finish = (force) => {
+          if (finished) return;
+          const enoughContent = realContentMaxScroll() >= savedY - 2;
+          if (!force && !enoughContent) return;
+          finished = true;
+          cleanup();
+          // Remove only the temporary bootstrap height after the real page can
+          // support the saved position. On timeout, clamp to the real page.
+          document.documentElement.style.minHeight = '';
+          document.body.style.minHeight = '';
+          const target = enoughContent ? savedY : maxScroll();
+          window.scrollTo(0, target);
+          restoring = false;
+          try {
+            sessionStorage.setItem(pathKey(), String(Math.round(target)));
+            sessionStorage.setItem(heightKey(), String(getHeight()));
+          } catch {}
+          window.dispatchEvent(new Event('nexora:scroll-restored'));
+        };
+        const check = () => {
+          if (finished) return;
+          if (realContentMaxScroll() >= savedY - 2) finish(false);
+          else frame = requestAnimationFrame(check);
+        };
+
+        if (savedY > 0) {
+          restoring = true;
+          // Reserve the prior document height before React mounts. This makes
+          // the initial scroll position possible immediately, avoiding the
+          // visible top-of-page flash and the navbar's false unscrolled state.
+          const bootstrapHeight = Math.max(savedHeight, savedY + window.innerHeight + 1);
+          document.documentElement.style.minHeight = `${bootstrapHeight}px`;
+          // Do not set body/root height: their natural scrollHeight is used to
+          // detect when the real route has rendered enough content.
+          window.scrollTo(0, savedY);
+          if ('ResizeObserver' in window) {
+            observer = new ResizeObserver(check);
+            observer.observe(document.documentElement);
+            if (document.body) observer.observe(document.body);
+          }
+          window.addEventListener('load', check, { once: true });
+          window.addEventListener('pageshow', check, { once: true });
+          restoreTimer = window.setTimeout(() => finish(true), 2500);
+          check();
+        }
+
+        window.addEventListener('scroll', save, { passive: true });
+        window.addEventListener('pagehide', save);
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') save();
+        });
+      })();
+    </script>
+    <script>
+      try {
+        const saved = JSON.parse(localStorage.getItem('nexora-ui') || 'null')
+        const theme = saved?.state?.theme === 'light' ? 'light' : 'dark'
+        document.documentElement.dataset.theme = theme
+        document.documentElement.style.colorScheme = theme
+      } catch {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>NEXORA — Multi-chain discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,520;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

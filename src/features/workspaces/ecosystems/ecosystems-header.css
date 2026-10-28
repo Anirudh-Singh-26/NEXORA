@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Ecosystems header — blockchain explorer. Scoped with `nxe-head` / `nxe-rule`.
+   A faint lattice and orbit motif give the page its own identity.
+   ========================================================================== */
+.nxe-head { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; padding: 26px 24px 22px; border: 1px solid var(--nx-border); border-radius: 18px; overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(ellipse 55% 90% at 88% 50%, color-mix(in srgb, var(--color-copper) 14%, transparent), transparent 70%),
+    linear-gradient(var(--nx-border) 1px, transparent 1px) 0 0 / 36px 36px,
+    linear-gradient(90deg, var(--nx-border) 1px, transparent 1px) 0 0 / 36px 36px,
+    var(--nx-panel); }
+@media (min-width: 900px) { .nxe-head { grid-template-columns: minmax(0, 1fr) 360px; align-items: center; gap: 24px; padding: 28px 32px 26px; } }
+
+.nxe-head__copy { min-width: 0; }
+.nxe-head__title { margin-top: 8px; font-family: var(--font-display); font-size: clamp(2.2rem, 4.6vw, 3.3rem); font-weight: 600; line-height: 0.95; letter-spacing: -0.05em; }
+.nxe-head__deck { margin-top: 12px; max-width: 36rem; font-size: 13.5px; line-height: 1.6; color: var(--color-mute); }
+
+.nxe-head__figures { display: flex; flex-wrap: wrap; gap: 14px 0; margin-top: 20px; }
+.nxe-head__figures > div { display: flex; flex-direction: column; padding: 0 20px; border-left: 1px solid var(--nx-border); }
+.nxe-head__figures > div:first-child { padding-left: 0; border-left: 0; }
+.nxe-head__figures dt { font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-mute); }
+.nxe-head__figures dd { margin-top: 4px; font-family: var(--font-mono); font-size: 22px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.nxe-head__figures small { margin-top: 5px; font-family: var(--font-mono); font-size: 10.5px; color: var(--color-mute); }
+.nxe-head__lead dd { font-family: var(--font-display); font-size: 18px; letter-spacing: -0.02em; }
+
+.nxe-head__pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 5px 11px; border: 1px solid var(--nx-border); border-radius: 999px; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-mute); }
+.nxe-head__pill span { width: 6px; height: 6px; border-radius: 99px; background: var(--color-copper); }
+
+.nxe-head__motif { display: none; margin: 0; min-width: 0; }
+@media (min-width: 900px) { .nxe-head__motif { display: block; } }
+.nxe-head__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nxe-head__ring { fill: none; stroke: var(--color-copper); stroke-opacity: 0.28; stroke-dasharray: 2 6; }
+.nxe-head__ring--outer { stroke-opacity: 0.18; }
+.nxe-head__spoke { stroke-opacity: 0.3; stroke-width: 1; }
+.nxe-head__hub { fill: var(--color-raised); stroke: var(--color-copper); stroke-width: 1.5; }
+
+/* Hand-off to the atlas ------------------------------------------------------ */
+.nxe-rule { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.nxe-rule span { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-copper); }
+.nxe-rule em { font-style: normal; font-size: 11.5px; color: var(--color-mute); }
+.nxe-rule::after { content: ""; flex: 1 1 40px; align-self: center; height: 1px; background: var(--nx-border); }
+
+@media (max-width: 560px) {
+  .nxe-head { padding: 20px 16px 18px; }
+  .nxe-head__figures > div { padding: 0 14px; }
+}
+
+@media (max-width: 560px) {
+  .nxe-head__figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 0; }
+  .nxe-head__figures > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+}

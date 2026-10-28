@@ -1,0 +1,239 @@
+
+/* ==========================================================================
+   NEXORA design system — "observatory"
+   Midnight navy + graphite surfaces, restrained violet (copper token) and icy
+   cyan (sage token) accents, hairline borders, one ambient light source.
+   Token NAMES are unchanged so existing pages keep working.
+   ========================================================================== */
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Surfaces: canvas < raised < inset (inset = controls / hover fills) */
+  --color-canvas: #070912;
+  --color-raised: #0c101e;
+  --color-inset: #121829;
+  --color-line: #232a40;
+
+  /* Text */
+  --color-ink: #eef1fc;
+  --color-mute: #8f9bb8;
+
+  /* Accents (legacy names kept: copper = violet, sage = cyan) */
+  --color-copper: #a99aff;
+  --color-sage: #6fdbe9;
+  --color-ember: #8b78ff;
+  --color-gain: #70d8b1;
+  --color-loss: #fb7185;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 24px rgba(0, 0, 0, 0.18);
+  --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(169, 154, 255, 0.07);
+  --shadow-pop: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(150, 165, 205, 0.12);
+
+  --ease-nx: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: dark;
+  --nx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --nx-duration-fast: 140ms;
+  --nx-duration-base: 220ms;
+  --nx-duration-slow: 420ms;
+  --nx-border: rgba(150, 165, 205, 0.14);
+  --nx-border-strong: rgba(169, 154, 255, 0.34);
+  --nx-panel: rgba(13, 17, 31, 0.9);
+  --nx-topbar: 56px;
+  --nx-page-shadow: rgba(0, 0, 0, 0.18);
+  --nx-control-bg: rgba(18, 24, 41, 0.7);
+  --nx-panel-start: rgba(17, 22, 38, 0.96);
+  --nx-panel-end: rgba(11, 15, 27, 0.97);
+  --nx-surface-bg: rgba(12, 16, 30, 0.72);
+  --nx-edge-fade: #070912;
+}
+
+/* Light mode is a first-class theme: the same semantic tokens drive every route. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-canvas: #eef1f9;
+  --color-raised: #fbfcff;
+  --color-inset: #e6eaf5;
+  --color-line: #d7deed;
+  --color-ink: #191d30;
+  --color-mute: #5f6b87;
+  --color-copper: #7054d9;
+  --color-sage: #087f9b;
+  --color-ember: #7054d9;
+  --color-gain: #138765;
+  --color-loss: #d94862;
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.9) inset, 0 6px 20px rgba(29,38,72,0.055);
+  --shadow-lift: 0 1px 0 rgba(255,255,255,0.95) inset, 0 16px 32px rgba(29,38,72,0.12), 0 0 0 1px rgba(112,84,217,0.08);
+  --shadow-pop: 0 24px 64px rgba(29,38,72,0.18), 0 0 0 1px rgba(80,92,130,0.12);
+  --nx-border: rgba(81, 93, 129, 0.17);
+  --nx-border-strong: rgba(112, 84, 217, 0.34);
+  --nx-panel: rgba(255, 255, 255, 0.96);
+  --nx-page-shadow: rgba(29, 38, 72, 0.07);
+  --nx-control-bg: rgba(231, 235, 247, 0.96);
+  --nx-panel-start: #fbfcff;
+  --nx-panel-end: #f1f3fb;
+  --nx-surface-bg: rgba(249, 250, 255, 0.9);
+  --nx-edge-fade: #eef1f9;
+}
+
+@layer base {
+  * { border-color: var(--color-line); }
+  html, body, #root { min-height: 100%; min-width: 0; max-width: 100%; }
+  html, body { overflow-x: hidden !important; }
+  #root, .nx-app { width: 100%; min-width: 0; max-width: 100%; }
+  html { background: var(--color-canvas); }
+  body {
+    margin: 0;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  button, input, select, textarea { font: inherit; }
+  button { -webkit-tap-highlight-color: transparent; }
+  ::selection { background: rgba(169, 154, 255, 0.3); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid color-mix(in oklab, var(--color-copper) 78%, white); outline-offset: 2px; }
+  a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .font-mono, .tabular-nums { font-variant-numeric: tabular-nums; }
+}
+
+@utility font-display { font-family: var(--font-display); }
+
+:root[data-theme="light"] body { background: var(--color-canvas); }
+:root[data-theme="light"] body { color: var(--color-ink); }
+:root[data-theme="light"] ::selection { background: rgba(112, 84, 217, 0.18); color: var(--color-ink); }
+:root[data-theme="light"] ::-webkit-scrollbar-track { background: #f6f7fb; }
+:root[data-theme="light"] ::-webkit-scrollbar-thumb { background: #c7cde0; border-color: #f6f7fb; }
+:root[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #9ca7c5; }
+
+.mesh-fallback {
+  background:
+    radial-gradient(ellipse at 65% 30%, rgba(125, 100, 255, 0.18), transparent 48%),
+    radial-gradient(ellipse at 20% 78%, rgba(69, 194, 212, 0.12), transparent 42%),
+    linear-gradient(145deg, #101629, #070912 72%);
+}
+
+/* --------------------------------------------------------------------------
+   Ambient light: a single fixed layer behind the app (violet top-right,
+   whisper of cyan bottom-left). Cheaper than background-attachment: fixed.
+   -------------------------------------------------------------------------- */
+.nx-app { position: relative; isolation: isolate; }
+.nx-app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 64rem 30rem at 84% -14%, rgba(104, 82, 230, 0.13), transparent 66%),
+    radial-gradient(ellipse 44rem 24rem at -12% 92%, rgba(40, 150, 175, 0.06), transparent 66%);
+}
+
+/* --------------------------------------------------------------------------
+   Surfaces
+   -------------------------------------------------------------------------- */
+@layer components {
+  /* Standard raised panel */
+  .nx-panel {
+    border: 1px solid var(--nx-border);
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(118, 102, 222, 0.04), transparent 44%),
+      linear-gradient(150deg, rgba(17, 22, 38, 0.96), rgba(11, 15, 27, 0.97));
+    box-shadow: var(--shadow-card);
+  }
+  /* Flat, quieter surface for dense lists / tables */
+  .nx-surface {
+    border: 1px solid var(--nx-border);
+    background: var(--nx-surface-bg);
+  }
+  .nx-interactive {
+    transition: border-color var(--nx-duration-base) var(--nx-ease), background-color var(--nx-duration-base) var(--nx-ease), box-shadow var(--nx-duration-base) var(--nx-ease);
+  }
+  .nx-interactive:hover {
+    border-color: var(--nx-border-strong);
+    box-shadow: var(--shadow-lift);
+  }
+
+  /* Type helpers */
+  .nx-kicker {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+  }
+  .nx-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-mute);
+  }
+
+  /* Compact form controls shared by filter bars */
+  .nx-field {
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--nx-border);
+    background: var(--nx-control-bg);
+    transition: border-color var(--nx-duration-fast) ease, background-color var(--nx-duration-fast) ease, box-shadow var(--nx-duration-fast) ease;
+  }
+  .nx-field:hover { border-color: rgba(169, 154, 255, 0.26); }
+  .nx-field:focus-within, .nx-field:focus-visible { border-color: rgba(169, 154, 255, 0.5); box-shadow: 0 0 0 3px rgba(169, 154, 255, 0.1); outline: none; }
+
+  /* Segmented control / pill tabs (animated indicator is rendered by Motion) */
+  .nx-segmented { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; border: 1px solid var(--nx-border); background: color-mix(in srgb, var(--color-inset) 80%, transparent); }
+  .nx-segmented > button { position: relative; display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 7px; font-size: 12px; color: var(--color-mute); transition: color var(--nx-duration-fast) ease; }
+  .nx-segmented > button:hover { color: var(--color-ink); }
+  .nx-segmented > button[aria-pressed="true"], .nx-segmented > button[aria-selected="true"] { color: var(--color-ink); }
+
+  /* Image shimmer placeholder */
+  .nx-skeleton {
+    background: linear-gradient(100deg, var(--color-inset) 30%, color-mix(in srgb, var(--color-line) 78%, white) 50%, var(--color-inset) 70%);
+    background-size: 220% 100%;
+    animation: nx-shimmer 1.6s linear infinite;
+  }
+
+  /* Live status dot */
+  .nx-live-dot { position: relative; display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--color-gain); }
+  .nx-live-dot::after { content: ""; position: absolute; inset: -3px; border-radius: inherit; background: var(--color-gain); opacity: 0.35; animation: nx-ping 2.2s var(--nx-ease) infinite; }
+
+  /* Sticky filter bar under the topbar */
+  .nx-sticky-bar { z-index: 20; }
+  @media (min-width: 1024px) {
+    .nx-sticky-bar {
+      position: sticky;
+      top: calc(var(--nx-topbar) + 8px);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    }
+  }
+}
+
+@keyframes nx-shimmer { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+@keyframes nx-ping { 0% { transform: scale(0.8); opacity: 0.5; } 70%, 100% { transform: scale(2.1); opacity: 0; } }
+@keyframes nx-pop-in { from { opacity: 0; transform: translateY(-4px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes nx-pop-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-2px) scale(0.985); } }
+@keyframes nx-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nx-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+/* Fallback motion for Radix popovers / dialogs (utility classes in the UI kit win over these). */
+@layer base {
+  [role="listbox"][data-state="open"], [role="menu"][data-state="open"] { animation: nx-pop-in 160ms var(--nx-ease); transform-origin: var(--radix-popper-transform-origin, top); }
+  [role="listbox"][data-state="closed"], [role="menu"][data-state="closed"] { animation: nx-pop-out 110ms ease-in forwards; }
+  [role="dialog"][data-state="open"] { animation: nx-pop-in 200ms var(--nx-ease); }
+  [role="dialog"][data-state="closed"] { animation: nx-pop-out 130ms ease-in forwards; }
+}

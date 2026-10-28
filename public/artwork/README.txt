@@ -1,0 +1,1 @@
+NEXORA demo artwork. Locally bundled SVG assets keep collection cards, NFT previews, project tiles, and campaign banners visible without third-party image loading. These are illustrative mock assets for the frontend prototype.

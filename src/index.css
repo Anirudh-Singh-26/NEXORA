@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "./styles/design-system.css";
+@import "./styles/discover.css";
+@import "./styles/surface-themes.css";
+@import "./styles/moving-rails.css";
+@import "./styles/layout-and-interactions.css";
+@import "./styles/mega-navigation.css";
+@import "./styles/wallet-page.css";

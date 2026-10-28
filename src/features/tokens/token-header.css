@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Tokens header — market terminal. Scoped with `nxt-head`, `nxt-tape`, `nxt-zone`.
+   Mono figures, hairline dividers, tight radii; gain/loss pair colour with arrows.
+   ========================================================================== */
+.nxt-head { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.nxt-head__row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 24px; }
+.nxt-head__path { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-mute); }
+.nxt-head__path span:last-child { color: var(--color-copper); }
+.nxt-head__path i { font-style: normal; opacity: 0.5; }
+.nxt-head__title { margin-top: 6px; font-family: var(--font-display); font-size: clamp(1.7rem, 2.8vw, 2.15rem); font-weight: 600; line-height: 1; letter-spacing: -0.045em; }
+.nxt-head__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 0; margin: 0; padding: 0; list-style: none; font-family: var(--font-mono); font-size: 11px; color: var(--color-mute); }
+.nxt-head__meta li { padding: 0 12px; border-left: 1px solid var(--nx-border); }
+.nxt-head__meta li:first-child { border-left: 0; }
+.nxt-head__meta b { font-weight: 500; color: var(--color-ink); }
+.nxt-head__badge { display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0.1em; text-transform: uppercase; font-size: 10px; }
+.nxt-head__badge svg { color: var(--color-copper); }
+.nxt-head__note { max-width: 40rem; font-size: 12px; line-height: 1.5; color: var(--color-mute); }
+
+/* Tape ------------------------------------------------------------------- */
+.nxt-tape { display: flex; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; border: 1px solid var(--nx-border); border-radius: 8px; background: var(--nx-panel); }
+.nxt-tape::-webkit-scrollbar { display: none; }
+.nxt-tape > li { flex: none; border-left: 1px solid var(--nx-border); }
+.nxt-tape > li:first-child { border-left: 0; }
+.nxt-tape__item { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; font-family: var(--font-mono); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; transition: background-color 140ms ease; }
+.nxt-tape__item:hover { background: color-mix(in srgb, var(--color-inset) 75%, transparent); }
+.nxt-tape__rank { font-size: 10px; color: color-mix(in srgb, var(--color-mute) 80%, transparent); }
+.nxt-tape__item b { font-weight: 500; }
+.nxt-tape__px { color: var(--color-mute); }
+.nxt-tape__ch { display: inline-flex; align-items: center; gap: 2px; }
+.nxt-tape__ch.is-up { color: var(--color-gain); }
+.nxt-tape__ch.is-down { color: var(--color-loss); }
+
+/* Zone labels separate the market overview from the token directory ------- */
+.nxt-zone { display: flex; align-items: baseline; gap: 12px; margin-top: 8px; }
+.nxt-zone span { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-ink); }
+.nxt-zone em { font-style: normal; font-size: 11px; color: var(--color-mute); }
+.nxt-zone::after { content: ""; flex: 1; align-self: center; height: 1px; background: var(--nx-border); order: 3; }
+
+@media (max-width: 560px) {
+  .nxt-head__meta li { padding: 0 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .nxt-tape__item { transition: none; } }
+:root[data-motion="reduced"] .nxt-tape__item { transition: none; }
